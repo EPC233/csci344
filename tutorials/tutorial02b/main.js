@@ -26,7 +26,7 @@ function setup()
 function draw5Circles()
 {
   noFill();
-  // fill('red');
+  fill('red');
   circle(100, 200, 50); // centerX, centerY, radius
   circle(100, 250, 50);
   circle(100, 300, 50);
