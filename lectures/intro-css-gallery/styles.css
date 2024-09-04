@@ -2,4 +2,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Your code here */
+header
+{
+    background-color: yellow;
+    padding: 40px;
+}
+
+section 
+{
+    border-width: 1px;
+    border-style: solid;
+    display: inline-block;
+}
