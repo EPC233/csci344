@@ -38,34 +38,31 @@ body {
 }
 
 header {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 1;
 }
 
 nav {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
 }
 
 aside {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 2;
 }
 
 section {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 2;
 }
 
 main {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
 }
 
 footer {
-}
-
-
-
-@media (max-width: 1020px) {
-}
-
-
-@media (max-width: 720px) {
+  grid-column: 1 / span 3;
+  grid-row: 4 / span 1;
 }
