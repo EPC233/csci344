@@ -1,0 +1,61 @@
+/* Style for the cyan banner behind the header */
+header {
+  background-color: #007777;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for the h1 inside the header */
+h1 {
+  margin: 0;
+}
+
+/* Container for the cards */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Style for the dropdown button */
+.dropdown-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Hidden dropdown content */
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  display: block;
+  text-decoration: none;
+  padding: 8px 0;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
