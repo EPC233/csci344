@@ -1,14 +1,10 @@
-const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+    const dropdownBtns = document.querySelectorAll('.dropdown-btn');
 
-dropdownBtns.forEach(button =>
-{
-    button.addEventListener('click', () =>
+    dropdownBtns.forEach(button =>
     {
-        // Toggle the visibility of the next sibling element (dropdown content)
-        const dropdownContent = button.nextElementSibling;
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-
-        // Optional: Add smooth transition
-        dropdownContent.style.transition = 'height 0.3s ease-out';
+        button.addEventListener('click', () =>
+        {
+            const dropdownContent = button.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === 'flex' ? 'none' : 'flex';
+        });
     });
-});
