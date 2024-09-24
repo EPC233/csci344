@@ -32,39 +32,8 @@ aside,
 body > header,
 main,
 .news-feed {
-	border: solid 4px #000;
 	padding: 10px;
 	margin: 10px;
-}
-
-main {
-    margin-top: 100px;
-    width: 70vw;
-}
-
-story {
-    display: flex;
-    border: #000;
-}
-
-story img {
-    border-radius: 50%;
-}
-
-main header {
-    display: flex;
-    justify-content: space-between;
-}
-
-main username {
-    font-family: "Nunito", sans-serif;
-    font-size: 30px;
-}
-
-main dots {
-    font-size: 30px;
-    display: inline-block;
-    transform: rotate(90deg);
 }
 
 top-header {
@@ -94,12 +63,49 @@ article {
     min-height: 300px;
 }
 
+.story {
+    margin-top: 10vh;
+    margin-left: 3.5vw;
+    width: 69vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.story div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.story img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.userinfo {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #888;
+}
+
+.userinfo username {
+    font-weight: bold;
+    color: #333;
+}
+
 aside {
     position: fixed;
     right: 0;
     top: 10vh;
     width: 25vw;
-    font-family: Arial, sans-serif;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -161,6 +167,93 @@ aside div follow {
     cursor: pointer;
 }
 
+main {
+    width: 75vw;
+}
+
+main .post-header {
+    padding: 20px;
+}
+
+main span {
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+main .likes {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+main .caption div {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+main .comments div {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+main .time {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+article {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+article username {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+article dots {
+    margin-right: 10px;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    gap: 10px;
+}
+
+.comment input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: #e8e8e8;
+    font-size: 14px;
+}
+
+.comment button {
+    background-color: transparent;
+    color: #0011ff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 14px;
+}
 
 /* End Debugging Code */
 
@@ -169,9 +262,13 @@ aside div follow {
         display: none;
     }
 
+    .story {
+        display: none;
+    }
+
     main {
-        width: 100%;
-        margin: 0;
+        width: 95%;
         padding: 5vw;
+        margin-top: 10vh;
     }
 }
