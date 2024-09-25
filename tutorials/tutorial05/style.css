@@ -134,3 +134,15 @@ h1 {
 .high-contrast button {
     color: black;
 }
+
+.dyslexia-mode {
+    .content {
+        margin-left: 20vw;
+        margin-right: 20vw;
+    }
+    font-size: 25px;
+    letter-spacing: 5px;
+    word-spacing: 30px;
+    line-height: 2;
+    font-weight: bold;
+}

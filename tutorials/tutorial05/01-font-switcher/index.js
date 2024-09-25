@@ -1,10 +1,25 @@
 const makeBigger = () => {
-   alert('make bigger!');
+   const content = document.querySelector('.content');
+   const heading = document.querySelector('h1');
+   
+   let contentSize = window.getComputedStyle(content, null).getPropertyValue('font-size');
+   let headingSize = window.getComputedStyle(heading, null).getPropertyValue('font-size');
+   
+   content.style.fontSize = (parseFloat(contentSize) + 1) + 'px';
+   heading.style.fontSize = (parseFloat(headingSize) + 1) + 'px';
 };
 
 const makeSmaller = () => {
-   alert('make smaller!');
+   const content = document.querySelector('.content');
+   const heading = document.querySelector('h1');
+   
+   let contentSize = window.getComputedStyle(content, null).getPropertyValue('font-size');
+   let headingSize = window.getComputedStyle(heading, null).getPropertyValue('font-size');
+   
+   content.style.fontSize = (parseFloat(contentSize) - 1) + 'px';
+   heading.style.fontSize = (parseFloat(headingSize) - 1) + 'px';
 };
+
 
 /*
 Tips:
