@@ -1,66 +1,69 @@
 body {
-	background-image: linear-gradient(rgb(114, 51, 114), rgb(47, 47, 119));
+	background-image: linear-gradient(#D5C6E0, #A0C4FF);
 }
 
-/* Style for the cyan banner behind the header */
-header {
-	background-color: #007777;
-	color: white;
-	border-radius: 5px;
-	padding: 20px;
-	text-align: center;
-}
+	header {
+		width: 50%;
+		background-color: #006D77;
+		color: white;
+		border-radius: 5px;
+		padding: 20px;
+		margin: 0 auto;
+		text-align: center;
+	}
 
-/* Style for the h1 inside the header */
 h1 {
 	margin: 0;
 }
 
-/* Container for the cards */
 .card-container {
-	display: flexbox;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
 }
 
-/* Individual card styling */
 .card {
-	margin: auto;
-    margin-top: 10px;
-	background-color: #999999;
+	background-color: #F7F7F7;
 	border-radius: 10px;
 	padding: 20px;
 	width: 95%;
+	max-width: 600px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	text-align: left;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Style for the dropdown button */
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 .dropdown-btn {
-    display: flex;
+	display: flex;
 	margin-top: 10px;
 	padding: 10px;
-	background-color: #2e2e2e;
+	background-color: #3A5A99;
 	color: white;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s;
+	width: 40%;
+	text-align: left;
 }
 
 .dropdown-btn:hover {
-	background-color: #0056b3;
-}
-
-/* Hidden dropdown content */
-.dropdown-btn:nth-of-type(2) {
-	display: none;
+	background-color: #5777B7;
 }
 
 .dropdown-content {
 	display: none;
-    flex-direction: column;
+	flex-direction: column;
 	margin-top: 10px;
-    width: fit-content;
-	background-color: #4b4b4b;
+	width: auto;
+	background-color: #DDE4F2;
 	border-radius: 5px;
 	padding: 20px;
 }
@@ -68,9 +71,15 @@ h1 {
 .dropdown-content a {
 	text-decoration: none;
 	padding: 8px 0;
-	color: #ffffff;
+	color: #3A5A99;
+	transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
-	background-color: #ddd;
+	background-color: #A0C4FF;
+	color: #333333;
+}
+
+.dropdown-btn:focus + .dropdown-content {
+	display: flex;
 }
