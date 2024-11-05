@@ -74,12 +74,11 @@ const showData = (searchTerm, openOnly) => {
     // Step 1
     let filteredData = data;
 
-    if (openOnly) {
+    if (openOnly)
         filteredData = filteredData.filter(filterClassFull);
-    }
-    if (searchTerm) {
+
+    if (searchTerm)
         filteredData = filteredData.filter((course) => filterTermMatched(course, searchTerm));
-    }
 
     // Step 2
     const htmlArray = filteredData.map(dataToHTML);
