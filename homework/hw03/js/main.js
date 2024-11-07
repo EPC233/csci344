@@ -70,12 +70,10 @@ function showPosts(posts) {
                 <!--    buttons -->
                 <div class="flex justify-between text-2xl mb-3">
                     <div>
-                        <button><i class="far fa-heart"></i></button>
-                        <button><i class="far fa-comment"></i></button>
-                        <button><i class="far fa-paper-plane"></i></button>
+                        ${getLikeButton(post)}
                     </div>
                     <div>
-                        <button><i class="far fa-bookmark"></i></button>
+                        ${getBookmarkButton(post)}
                     </div>
                 </div>
 
@@ -89,14 +87,7 @@ function showPosts(posts) {
                 </div>
 
                 <!--    comments   -->
-                <p class="text-sm mb-3">
-                    <strong>lizzie</strong>
-                    Here is a comment text text text text text text text text.
-                </p>
-                <p class="text-sm mb-3">
-                    <strong>vanek97</strong>
-                    Here is another comment text text text.
-                </p>
+                ${showComments(post.comments)}
 
                 <!--    post time   -->
                 <p class="uppercase text-gray-500 text-xs">${post.display_time}</p>
@@ -115,10 +106,79 @@ function showPosts(posts) {
     });
 }
 
-// after all of the functions are defined, invoke initialize at the bottom:
-initializeScreen();
+//  input comments
+//  output html representation of comments array
+function showComments(comments) {
+    if (comments.length > 1) {
+        const lastComment = comments[comments.length-1];
+        return `
+            <button class="text-sm mb-3"> View All ${comments.length} Comments</button>
+            <p class="text-sm mb-3">
+                <strong> ${lastComment.user.username} </strong>
+                ${lastComment.text}
+            </p>
+        `;
+    }
 
+    if (comments.length === 1) {
+        return `<p class="text-sm mb-3"> <strong> ${comments[0].user.username} </strong> ${comments[0].text}</p>`;
+    }
 
+    return ``;
+}
+
+function getLikeButton(post) {
+    let iconClass = (post.current_user_like_id) ? "fa-solid text-red-700" : "far";
+    return `<button><i class="${iconClass} fa-heart"></i></button>`;
+}
+
+function getBookmarkButton(post) {
+    if (post.current_user_bookmark_id) {
+        return `
+        <button onclick="deleteBookmark(${post.current_user_bookmark_id})">
+            <i class="fa-solid fa-bookmark"></i>
+        </button>`;
+    }
+    else {
+        return `
+        <button onclick="createBookmark(${post.id})">
+            <i class="far fa-bookmark"></i>
+        </button>`;
+    }
+}
+
+window.createBookmark = async function(postID) {
+    const postData = {
+        post_id: postID,
+    };
+    
+    const response = await fetch(
+        "https://photo-app-secured.herokuapp.com/api/bookmarks/", 
+        {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(postData),
+        }
+    );
+
+    const data = await response.json();
+    console.log(data);
+}
+
+window.deleteBookmark = async function (bookmarkId) {
+    const response = await fetch(`https://photo-app-secured.herokuapp.com/api/bookmarks/${bookmarkId}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token} `
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+}
 
 // after all of the functions are defined, invoke initialize at the bottom:
 initializeScreen();
