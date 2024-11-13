@@ -128,8 +128,49 @@ function showComments(comments) {
 }
 
 function getLikeButton(post) {
-    let iconClass = (post.current_user_like_id) ? "fa-solid text-red-700" : "far";
-    return `<button><i class="${iconClass} fa-heart"></i></button>`;
+    if (post.current_user_like_id) {
+        return `
+        <button onclick="deleteLike(${post.current_user_like_id})">
+            <i class="fa-solid text-red-700 fa-heart"></i>
+        </button>`;
+    }
+    else {
+        return `
+        <button onclick="createLike(${post.id})">
+            <i class="far fa-heart"></i>
+        </button>`;
+    }
+}
+
+window.createLike = async function(postID) {
+    const postData = {
+        post_id: postID,
+    };
+
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/likes/", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`    
+        },
+        body: JSON.stringify(postData)
+    });
+
+    const data = await response.json();
+    console.log(data);
+}
+
+window.deleteLike = async function(likeID) {
+    const response = await fetch(`https://photo-app-secured.herokuapp.com/api/likes/${likeID}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token} `
+        }
+    });
+
+    const data = await response.json();
+    console.log(data);
 }
 
 function getBookmarkButton(post) {
